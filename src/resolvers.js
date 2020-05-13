@@ -33,6 +33,10 @@ export const resolvers = {
             const newUser = new user(input)
             await newUser.save();
             return newUser;
+        },
+
+        async deleteUser(_, {_id}){
+            return await user.findByIdAndDelete(_id);
         }
     }
 };
